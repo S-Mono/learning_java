@@ -68,7 +68,7 @@ public class test_java_class {
         //列挙型名はユニークである必要がある。
 
 
-        //if文とswitch文の例
+        //if文の例
         int counter = 3;
 
         if(counter >= 0){
@@ -79,6 +79,7 @@ public class test_java_class {
             System.out.println("counterは0以下です。");
         }
 
+        //switch文の例
         switch (counter){
             case 0:
                 System.out.println("counterは0と判定しています。");
@@ -89,5 +90,48 @@ public class test_java_class {
                 System.out.println("counterは0以外と判定しています。");
                 break;
         }
+
+        int a = 2;
+        int b = 5;
+        for(int j = 0; j < 5; j++){
+            //if文における簡潔な構文
+            //      ↓(条件式)? 値または式 : 値または式;
+            a += (a > b)?1:3;
+            //上記はbよりaが大きい場合は1を足し、それ以外は3を足すという意味
+            //if文だと4行程になるが、上記だと1行で済むので簡潔に記載できる。
+            System.out.println("a:::" + a);
+        }
+
+        System.out.println("----------------------------------");
+        System.out.println("----------------------------------");
+        System.out.println("------------九九の計算表------------");
+        //for文の例(九九の表作成)
+        for(int k = 1; k < 10; k++){
+            for(int l = 1; l < 10; l++){
+                System.out.print(k*l + "\t");
+            }
+            System.out.println("");
+            //System.out.print("\r\n") でも可。
+        }
+
+        System.out.println("----------------------------------");
+        System.out.println("----------------------------------");
+        System.out.println("----------引っ越しの料金表-----------");
+        //for文の例(引っ越しの料金表作成)
+        System.out.print("\t" + "\t");
+        int weight = 0;
+        for(weight = 20; weight <= 200; weight += 20){
+            System.out.print(weight + "kg" + "\t");
+        }
+        System.out.println("");
+        for(int distance = 10; distance <= 100; distance += 10){
+            System.out.print(distance + "km");
+            for(weight = 20; weight <= 200; weight += 20){
+                System.out.print("\t" + distance * weight * 50);
+            }
+            System.out.println("");
+        }
+        System.out.println("----------------------------------");
+
     }
 }
