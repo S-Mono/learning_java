@@ -1,5 +1,4 @@
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 public class test_java_class {
 //    ＜エントリポイントの条件＞
@@ -132,6 +131,67 @@ public class test_java_class {
             System.out.println("");
         }
         System.out.println("----------------------------------");
+
+        //-----配列-----
+        //一次元配列の例
+        int cArr[] = {1,2,3,4,5};
+        for (int m = 0; m < cArr.length; m++){
+            System.out.println("cArr:::::" + cArr[m]);
+        }
+
+        //多次元配列の例
+        //int test[][];
+        //↓このように初期化もできるけど、実用性はあまりない。
+        int[][] arrNum;
+        arrNum = new int[3][5];
+        arrNum[0][0] = 20;
+        arrNum[0][1] = 28;
+        //どっちかというと↓の方が実用的。
+        int score[][] = {
+                {20,28,40,19,50},{30,29,58,37,45},{50,39,29,48,58}
+        };
+
+        //可変長配列(コレクション）クラス　ArrayListクラス
+        //import java.util.ArrayList のインポート文が必要（今回は*で包括する)
+        ArrayList arrList = new ArrayList();
+        //ArrayList型のオブジェクトを作成してから使用すること。
+
+        //.isEmpty は　要素が空かどうかを判定する。空ならtureが返る。
+        System.out.println(arrList.isEmpty());
+
+        for(i = 0; i <=100; i++){
+            if(i % 5 == 0){
+                //.add は　要素を追加するメソッド
+                arrList.add(i);
+            }else if(i % 50 == 0){
+                //.size は　要素数を取得するメソッド。
+                System.out.println(arrList.size());
+            }
+        }
+
+        for(int j = 0; j < arrList.size(); j++){
+            //.get は　指定した位置の要素を取得するメソッド。
+            System.out.print(arrList.get(j) + "\t");
+        }
+
+        //ArrayListクラスで使用できるメソッド
+//        (void).add     :リストの指定インデックス位置に指定された要素を追加する。
+//        (boolean).add  :リストの末尾に要素を追加する。
+//        .clear    :リストからすべての要素を削除する。
+//        .get      :リストの指定された位置の要素を取得する。
+//        .indexOf  :(equals()メソッドを使って)引数と同じ指定要素を先頭から検索する。
+//        .isEmpty  :リストが空かどうかを調べる。空の場合trueが返る。
+//        .remove   :リストの指定された位置から要素を削除する。
+//        .set      :リストの指定された位置の要素を指定された要素の置き換える。
+//        .size     :リストの要素数を取得する。
+
+        int arrIndex;
+        for(int arr = 0; arr < arrList.size(); arr++){
+            //          ↓↓↓　ArrayList型を変数に代入する場合は、変数の型にキャストする必要がある。
+            arrIndex = (int) arrList.get(arr);
+            System.out.println("arrIndex:::::" + arrIndex);
+        }
+
 
     }
 }
