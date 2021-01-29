@@ -132,6 +132,24 @@ public class test_java_class {
         }
         System.out.println("----------------------------------");
 
+        //continue文とbreak文の例
+        for(int count = 0; count <= 20; count++){
+            System.out.println(count + "です。" + "continueの前です。");
+
+            if(count == 14){
+                continue;
+                //↑↑countが14の場合、後の処理は実行せずfor文の開始位置から続けることになるため、
+                //「continueの後です。」という処理は実行されない。
+            }else if(count == 18){
+                break;
+                //↑↑breakがあると、処理を中止することとなり、countが19・20の時の処理に加えて、
+                //countが18の時の「continueの後です。」の出力も行われない。
+            }
+
+            System.out.println(count + "です。" + "continueの後です。");
+        }
+
+
         //-----配列-----
         //一次元配列の例
         int cArr[] = {1,2,3,4,5};
@@ -191,6 +209,7 @@ public class test_java_class {
             arrIndex = (int) arrList.get(arr);
             System.out.println("arrIndex:::::" + arrIndex);
         }
+
 
 
     }
