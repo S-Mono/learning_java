@@ -1,3 +1,5 @@
+import jdk.jshell.spi.ExecutionControl;
+
 import java.util.*;
 
 public class test_java_class {
@@ -208,6 +210,90 @@ public class test_java_class {
             //          ↓↓↓　ArrayList型を変数に代入する場合は、変数の型にキャストする必要がある。
             arrIndex = (int) arrList.get(arr);
             System.out.println("arrIndex:::::" + arrIndex);
+        }
+
+        //インスタンス化とコンストラクタ
+
+        Machine machine1 = new Machine();
+        //Machineクラスをインスタンス化している。
+        //この場合は、引数に何も渡していないため、Machineクラスのコンストラクタで処理されたままとなる。
+        System.out.println("コンストラクタで処理された情報を基に表示");
+        machine1.showData();
+        System.out.println("------------------------------");
+
+
+        Machine machine2 = new Machine("M002",20,30,10);
+        //上記では、Machineクラスのオーバーロードしたコンストラクタを使用した呼び出し方をしている。
+        //この場合は、先程の引数を何も渡していない時のコンストラクタは処理されず、
+        //オーバーロードしたコンストラクタの処理が行われる。
+
+        System.out.println("コンストラクタをオーバーロードした内容内容で表示");
+        machine2.showData();
+        System.out.println("------------------------------");
+        //
+
+
+
+    }
+
+    //インスタンス用にMachineクラスを作成。
+    //本来一つのソースコードに複数のクラスが存在するのは可読性・保守性に対して好ましくないので注意。
+    static class Machine{
+
+        //↓クラスの持つ変数を定義する。これを「フィールド」という。
+        //フィールドには
+        private String serialNumber;
+        private int height;
+        private int width;
+        private int weight;
+
+        //マシンクラスのコンストラクタ
+        //コンストラクタとは……　クラスのインスタンスを作成したときに、自動的に処理されるメソッドのこと。
+        //クラス名と同名にする必要がある。
+        Machine(){
+            serialNumber = "M000";
+            height = 0;
+            width = 0;
+            weight = 0;
+        }
+
+        //以下の様に、引数無しのコンストラクタとは別に、引数で情報を更新する内容のコンストラクタを作成する。
+        //これを「オーバーロード」という。
+        Machine(String sn, int h, int wd, int we){
+            serialNumber = sn;
+            height = h;
+            width = wd;
+            weight = we;
+        }
+
+
+        void setSerialNumber(String serialNumber){
+            this.serialNumber = serialNumber;
+        }
+
+        void setHeight(int height){
+            this.height = height;
+        }
+
+        void setWidth(int width){
+            this.width = width;
+        }
+
+        void setWeight(int weight){
+            this.weight = weight;
+        }
+
+        void show(){
+            System.out.println("機械のシリアルナンバーは" + serialNumber + "です。");
+            System.out.println("高さは" + height + "cmです。");
+            System.out.println("幅は" + width + "cmです。");
+            System.out.println("重さは" + weight + "kgです。");
+            System.out.println("------------------------------");
+        }
+        void showData(){
+            System.out.println("機械の情報を表示します。");
+            System.out.println("------------------------------");
+            show();
         }
 
 
