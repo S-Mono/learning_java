@@ -81,6 +81,7 @@ public class test_java_class {
         }
 
         //switch文の例
+        //switch(式)における式に、double,flout型の値はコンパイルエラーとなるので注意！
         switch (counter){
             case 0:
                 System.out.println("counterは0と判定しています。");
@@ -227,7 +228,7 @@ public class test_java_class {
         //この場合は、先程の引数を何も渡していない時のコンストラクタは処理されず、
         //オーバーロードしたコンストラクタの処理が行われる。
 
-        System.out.println("コンストラクタをオーバーロードした内容内容で表示");
+        System.out.println("コンストラクタをオーバーロードした処理内容で表示");
         machine2.showData();
         System.out.println("------------------------------");
         //
